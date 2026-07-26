@@ -1,5 +1,5 @@
-# cse-importer
-
+# KiLib 
+ 
 Terminal UI for building a KiCad library. It imports Component Search Engine /
 Samacsys ZIP archives, and searches the LCSC / EasyEDA catalogue online to add
 parts that you do not have an archive for.
@@ -9,28 +9,32 @@ directory is hardcoded anywhere in the codebase.
 
 ## Build and run
 
-```sh
+```bash
 cargo build --release
-./target/release/cse-importer
+./target/release/kilib
 ```
+## Install 
 
+```bash
+cargo install --path .
+```
 ## Command line
 
-```sh
-cse-importer
-cse-importer --download-dir ~/Downloads/KiCad
-cse-importer --library-root ~/Documents/PCB/lib
-cse-importer --config ~/custom/config.toml
+```bash
+kilib
+kilib --download-dir ~/Downloads/KiCad
+kilib --library-root ~/Documents/PCB/lib
+kilib --config ~/custom/config.toml
 
 # Saved library locations.
-cse-importer --list-projects
-cse-importer --project synth
+kilib --list-projects
+kilib --project synth
 
 # Headless. These replace existing files without asking; the interface asks.
-cse-importer --search "NE555P"
-cse-importer --add C46749
-cse-importer --import ~/Downloads/KiCad/LIB_NE555P.zip
-cse-importer --project synth --add C46749
+kilib --search "NE555P"
+kilib --add C46749
+kilib --import ~/Downloads/KiCad/LIB_NE555P.zip
+kilib --project synth --add C46749
 ```
 
 Arguments override the configuration file for that run. They are only persisted
@@ -38,8 +42,8 @@ if you save from the Settings screen.
 
 ## Configuration
 
-Default location is `$XDG_CONFIG_HOME/cse-importer/config.toml`
-(`~/.config/cse-importer/config.toml`). It is created with defaults on first run.
+Default location is `$XDG_CONFIG_HOME/KiLib/config.toml`
+(`~/.config/KiLib/config.toml`). It is created with defaults on first run.
 
 ```toml
 library_root = "/home/user/KiCad/lib"
