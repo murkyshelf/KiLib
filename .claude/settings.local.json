@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo --version)",
+      "Bash(rustc --version)",
+      "Read(//home/murky-ai/Downloads/**)"
+    ]
+  }
+}
